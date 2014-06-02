@@ -204,28 +204,28 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       String Currentname = txtNAME.getText();
-        if ("dylan".equalsIgnoreCase(Currentname)) {
+        if (Currentname.equalsIgnoreCase("dylan")) {
              Time = GetData.getTimeDylan();
              System.out.println(Time);
              Time = Time + getTextboxTime();
              GetData.setTimeDylan(Time);
              System.out.println(Time);
         }
-        else if ("weilon".equals(Currentname)) {
+        else if (Currentname.equalsIgnoreCase("weilon")) {
              Time = GetData.getTimeWeilon();
              System.out.println(Time);
              Time = Time + getTextboxTime();
              GetData.setTimeWeilon(Time);
              System.out.println(Time);
         }
-        else if ("jack".equals(Currentname)) {
+        else if (Currentname.equalsIgnoreCase("jack")) {
              Time = GetData.getTimeJack();
              System.out.println(Time);
              Time = Time + getTextboxTime();
              GetData.setTimeJack(Time);
              System.out.println(Time);
         }
-        else if ("katrina".equals(Currentname)) {
+        else if (Currentname.equalsIgnoreCase("katrina")) {
              Time = GetData.getTimeKatrina();
              System.out.println(Time);
              Time = Time + getTextboxTime();

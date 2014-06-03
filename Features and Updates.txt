@@ -1,0 +1,29 @@
+Study Log V1.5.1
+Created by Dylan Zhang, adapted via the Rapid Application Development Approach from Weilon Ying's code
+#############################################################################################
+PLANNED FEATURES: 
+	N/A
+#############################################################################################
+Version History:
+1.0: [Dylan Zhang]
+	 Created program.
+
+1.1: [Dylan Zhang]
+	Added Katrina
+	Fixed a bug that caused the program to count over 60 minutes
+	Made program less insulting
+1.2: [Weilon Ying]
+	Program now checks if file is not found. If not found, automatically regenerate.
+	Developer-specific changes below:
+		Simplified some code.
+		Added more functionality to GetData.java
+		Added getTextboxTime() method.
+1.3: [Dylan Zhang]
+	Drew a background picture 
+1.4 [Weilon Ying]
+	Fixed name case bug
+1.5 [Dylan Zhang]
+	Added Phoebe
+	Created separate log files to allow for offline updating, without conflicting
+	Added Leader function
+	

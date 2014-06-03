@@ -37,12 +37,17 @@ import javax.swing.JOptionPane;
  * @author Weilon Ying, code "adapted" by Dylan Zhang (ha)
  */
 public class GetData extends MainGUI { //
-    static String sourcefile = "Log.txt";
+    static String sourcefile = "Logs/Log.txt";
+    static String Dylansourcefile = "Logs/LogDylan.txt";
+    static String Weilonsourcefile = "Logs/LogWeilon.txt";
+    static String Jacksourcefile = "Logs/LogJack.txt";
+    static String Katrinasourcefile = "Logs/LogKatrina.txt";
+    static String Phoebesourcefile = "Logs/LogPhoebe.txt";
     
     public static int getTimeDylan() {        
         try {
             Properties data = new Properties();
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Dylansourcefile);
             data.load(input);
             int pin = Integer.parseInt(data.getProperty("Dylan"));
             input.close(); //Closes input stream
@@ -56,14 +61,14 @@ public class GetData extends MainGUI { //
     public static void setTimeDylan(int TIIIME) { //Sets the isLockedOut variable
         try {
             Properties data = new Properties();   
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Dylansourcefile);
             
                 data.load(input);
                 int previousBalance = Integer.parseInt(data.getProperty("Dylan"));
                 
                     String totalBalance = Integer.toString(TIIIME);
                     input.close();
-                    FileOutputStream output = new FileOutputStream(sourcefile);
+                    FileOutputStream output = new FileOutputStream(Dylansourcefile);
                     data.setProperty("Dylan", totalBalance);
                     data.store(output, null);
                     output.close();
@@ -78,7 +83,7 @@ public class GetData extends MainGUI { //
     public static int getTimeWeilon() {        
         try {
             Properties data = new Properties();
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Weilonsourcefile);
             data.load(input);
             int pin = Integer.parseInt(data.getProperty("Weilon"));
             input.close(); //Closes input stream
@@ -92,14 +97,14 @@ public class GetData extends MainGUI { //
     public static void setTimeWeilon(int TIIIME) { //Sets the isLockedOut variable
         try {
             Properties data = new Properties();   
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Weilonsourcefile);
             
                 data.load(input);
                 int previousBalance = Integer.parseInt(data.getProperty("Weilon"));
                 
                     String totalBalance = Integer.toString(TIIIME);
                     input.close();
-                    FileOutputStream output = new FileOutputStream(sourcefile);
+                    FileOutputStream output = new FileOutputStream(Weilonsourcefile);
                     data.setProperty("Weilon", totalBalance);
                     data.store(output, null);
                     output.close();
@@ -114,7 +119,7 @@ public class GetData extends MainGUI { //
     public static int getTimeJack() {        
         try {
             Properties data = new Properties();
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Jacksourcefile);
             data.load(input);
             int pin = Integer.parseInt(data.getProperty("Jack"));
             input.close(); //Closes input stream
@@ -128,14 +133,14 @@ public class GetData extends MainGUI { //
     public static void setTimeJack(int TIIIME) { //Sets the isLockedOut variable
         try {
             Properties data = new Properties();   
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Jacksourcefile);
             
                 data.load(input);
                 int previousBalance = Integer.parseInt(data.getProperty("Jack"));
                 
                     String totalBalance = Integer.toString(TIIIME);
                     input.close();
-                    FileOutputStream output = new FileOutputStream(sourcefile);
+                    FileOutputStream output = new FileOutputStream(Jacksourcefile);
                     data.setProperty("Jack", totalBalance);
                     data.store(output, null);
                     output.close();
@@ -150,7 +155,7 @@ public class GetData extends MainGUI { //
     public static int getTimeKatrina() {        
         try {
             Properties data = new Properties();
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Katrinasourcefile);
             data.load(input);
             int pin = Integer.parseInt(data.getProperty("Katrina"));
             input.close(); //Closes input stream
@@ -164,15 +169,51 @@ public class GetData extends MainGUI { //
     public static void setTimeKatrina(int TIIIME) { //Sets the isLockedOut variable
         try {
             Properties data = new Properties();   
-            FileInputStream input = new FileInputStream(sourcefile);
+            FileInputStream input = new FileInputStream(Katrinasourcefile);
             
                 data.load(input);
                 int previousBalance = Integer.parseInt(data.getProperty("Katrina"));
                 
                     String totalBalance = Integer.toString(TIIIME);
                     input.close();
-                    FileOutputStream output = new FileOutputStream(sourcefile);
+                    FileOutputStream output = new FileOutputStream(Katrinasourcefile);
                     data.setProperty("Katrina", totalBalance);
+                    data.store(output, null);
+                    output.close();
+  
+        }
+        catch (Exception e) {
+            System.err.println("HOUSTON WE HAVE AN ERROR " + e.getMessage());
+        }
+        
+    }
+     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static int getTimePhoebe() {        
+        try {
+            Properties data = new Properties();
+            FileInputStream input = new FileInputStream(Phoebesourcefile);
+            data.load(input);
+            int pin = Integer.parseInt(data.getProperty("Phoebe"));
+            input.close(); //Closes input stream
+            return pin;
+        }
+        catch(Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            return 0;
+        }
+    }
+    public static void setTimePhoebe(int TIIIME) { //Sets the isLockedOut variable
+        try {
+            Properties data = new Properties();   
+            FileInputStream input = new FileInputStream(Phoebesourcefile);
+            
+                data.load(input);
+                int previousBalance = Integer.parseInt(data.getProperty("Phoebe"));
+                
+                    String totalBalance = Integer.toString(TIIIME);
+                    input.close();
+                    FileOutputStream output = new FileOutputStream(Phoebesourcefile);
+                    data.setProperty("Phoebe", totalBalance);
                     data.store(output, null);
                     output.close();
   

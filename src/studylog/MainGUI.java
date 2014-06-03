@@ -32,6 +32,12 @@ public class MainGUI extends javax.swing.JFrame {
     int KHours;
     int KMinutes;
     int KTotal;
+    
+    int PHours;
+    int PMinutes;
+    int PTotal;
+    
+    String Leader = "Nobody";
         
     /**
      * Creates new form MainGUI
@@ -47,12 +53,12 @@ public class MainGUI extends javax.swing.JFrame {
             GetData.regenFile(logFile);
         }
         rewriteData();
-        
+        Leader();
         
     }
     public void rewriteData() { //Regenerate names if not found
         //Add names here.
-        String[] names = {"Dylan", "Jack", "Weilon", "Katrina"};
+        String[] names = {"Dylan", "Jack", "Weilon", "Katrina", "Phoebe"};
         String checkExistingData = "";
         for (int i = 0; i < names.length; i++) {
             checkExistingData = GetData.getTime(names[i]);
@@ -82,6 +88,26 @@ public class MainGUI extends javax.swing.JFrame {
        KMinutes = (KTotal - KHours*60);
        lblKatrinaTime.setText(KHours+" Hour(s), "+KMinutes+" Minutes");
 
+       PTotal = GetData.getTimePhoebe();
+       PHours = PTotal/60;
+       PMinutes = (PTotal - PHours*60);
+       lblPhoebeTime.setText(PHours+" Hour(s), "+PMinutes+" Minutes");
+    }
+    public void Leader() {
+        if (DTotal > JTotal && DTotal > WTotal && DTotal > KTotal && DTotal > PTotal) {
+            Leader = "Dylan";
+        }
+        else if (JTotal > DTotal && JTotal > WTotal && JTotal > KTotal && JTotal > PTotal) {
+            Leader = "Jack"; }
+        else if (WTotal > DTotal && WTotal > JTotal && WTotal > KTotal && WTotal > PTotal) {
+            Leader = "Weilon"; }
+        else if (KTotal > DTotal && KTotal > WTotal && KTotal > JTotal && KTotal > PTotal) {
+            Leader = "Katrina"; }
+        else if (PTotal > DTotal && PTotal > WTotal && PTotal > KTotal && PTotal > JTotal) {
+            Leader = "Phoebe"; }
+        
+        lblWinning.setText("Currently in the lead is " + Leader + "!");
+        
     }
 
     /**
@@ -96,10 +122,14 @@ public class MainGUI extends javax.swing.JFrame {
         txtNAME = new javax.swing.JTextField();
         txtTIME = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        NOTE = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        lblWinningTime = new javax.swing.JLabel();
         lblWinning = new javax.swing.JLabel();
-        lblDylan1 = new javax.swing.JLabel();
+        lblPhoebe = new javax.swing.JLabel();
+        lblPhoebeTime = new javax.swing.JLabel();
+        lblKatrina = new javax.swing.JLabel();
         lblKatrinaTime = new javax.swing.JLabel();
         lblDylan = new javax.swing.JLabel();
         lblDylanTime = new javax.swing.JLabel();
@@ -114,7 +144,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         txtNAME.setFont(new java.awt.Font("Helvetica-Narrow", 0, 36)); // NOI18N
         getContentPane().add(txtNAME);
-        txtNAME.setBounds(80, 100, 390, 54);
+        txtNAME.setBounds(80, 140, 390, 54);
 
         txtTIME.setFont(new java.awt.Font("Helvetica-Narrow", 0, 36)); // NOI18N
         txtTIME.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +153,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtTIME);
-        txtTIME.setBounds(80, 210, 390, 54);
+        txtTIME.setBounds(80, 250, 390, 54);
 
         jButton1.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         jButton1.setText("Submit Times");
@@ -133,62 +163,81 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(80, 270, 390, 80);
+        jButton1.setBounds(80, 310, 390, 80);
+
+        NOTE.setFont(new java.awt.Font("Helvetica-Narrow", 0, 18)); // NOI18N
+        NOTE.setText("V1.5.1: New time logs must be genuine entries as of 4/6/14");
+        getContentPane().add(NOTE);
+        NOTE.setBounds(80, 460, 520, 44);
 
         jLabel2.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         jLabel2.setText("Time (in minutes):");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(80, 160, 392, 44);
+        jLabel2.setBounds(80, 200, 392, 44);
 
         jLabel4.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         jLabel4.setText("First Name:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(80, 50, 392, 44);
+        jLabel4.setBounds(80, 90, 392, 44);
+
+        lblWinningTime.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
+        getContentPane().add(lblWinningTime);
+        lblWinningTime.setBounds(100, 440, 360, 44);
 
         lblWinning.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
-        lblWinning.setText("Currently in the lead is:");
+        lblWinning.setText("Currently in the lead is");
         getContentPane().add(lblWinning);
-        lblWinning.setBounds(100, 360, 360, 44);
+        lblWinning.setBounds(80, 400, 360, 44);
 
-        lblDylan1.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
-        lblDylan1.setText("Katrina");
-        getContentPane().add(lblDylan1);
-        lblDylan1.setBounds(530, 200, 80, 44);
+        lblPhoebe.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
+        lblPhoebe.setText("Phoebe");
+        getContentPane().add(lblPhoebe);
+        lblPhoebe.setBounds(530, 310, 110, 44);
+
+        lblPhoebeTime.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
+        lblPhoebeTime.setText("___________________");
+        getContentPane().add(lblPhoebeTime);
+        lblPhoebeTime.setBounds(620, 310, 290, 44);
+
+        lblKatrina.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
+        lblKatrina.setText("Katrina");
+        getContentPane().add(lblKatrina);
+        lblKatrina.setBounds(530, 260, 80, 44);
 
         lblKatrinaTime.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblKatrinaTime.setText("___________________");
         getContentPane().add(lblKatrinaTime);
-        lblKatrinaTime.setBounds(620, 200, 290, 44);
+        lblKatrinaTime.setBounds(620, 260, 290, 44);
 
         lblDylan.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblDylan.setText("Dylan");
         getContentPane().add(lblDylan);
-        lblDylan.setBounds(530, 50, 80, 44);
+        lblDylan.setBounds(530, 110, 80, 44);
 
         lblDylanTime.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblDylanTime.setText("___________________");
         getContentPane().add(lblDylanTime);
-        lblDylanTime.setBounds(620, 50, 310, 44);
+        lblDylanTime.setBounds(620, 110, 310, 44);
 
         lblWhale.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblWhale.setText("Weilon");
         getContentPane().add(lblWhale);
-        lblWhale.setBounds(530, 150, 80, 44);
+        lblWhale.setBounds(530, 160, 80, 44);
 
         lblWhaleTime.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblWhaleTime.setText("___________________");
         getContentPane().add(lblWhaleTime);
-        lblWhaleTime.setBounds(620, 150, 300, 44);
+        lblWhaleTime.setBounds(620, 160, 300, 44);
 
         lblJack.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblJack.setText("Jack");
         getContentPane().add(lblJack);
-        lblJack.setBounds(530, 100, 60, 44);
+        lblJack.setBounds(530, 210, 60, 44);
 
         lblJackTime.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblJackTime.setText("___________________");
         getContentPane().add(lblJackTime);
-        lblJackTime.setBounds(620, 100, 300, 44);
+        lblJackTime.setBounds(620, 210, 300, 44);
 
         lblWallpaper.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblWallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/studylog/Wallpaper.png"))); // NOI18N
@@ -232,11 +281,19 @@ public class MainGUI extends javax.swing.JFrame {
              GetData.setTimeKatrina(Time);
              System.out.println(Time);
         }
+        else if (Currentname.equalsIgnoreCase("phoebe")) {
+             Time = GetData.getTimePhoebe();
+             System.out.println(Time);
+             Time = Time + getTextboxTime();
+             GetData.setTimePhoebe(Time);
+             System.out.println(Time);
+        }
         else {
             JOptionPane.showMessageDialog(null, "Enter your name correctly!");
         }
         txtTIME.setText("");
         SetLabels(); 
+        Leader();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public int getTextboxTime() {
@@ -294,19 +351,23 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel NOTE;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblDylan;
-    private javax.swing.JLabel lblDylan1;
     private javax.swing.JLabel lblDylanTime;
     private javax.swing.JLabel lblJack;
     private javax.swing.JLabel lblJackTime;
+    private javax.swing.JLabel lblKatrina;
     private javax.swing.JLabel lblKatrinaTime;
+    private javax.swing.JLabel lblPhoebe;
+    private javax.swing.JLabel lblPhoebeTime;
     private javax.swing.JLabel lblWallpaper;
     private javax.swing.JLabel lblWhale;
     private javax.swing.JLabel lblWhaleTime;
     private javax.swing.JLabel lblWinning;
+    private javax.swing.JLabel lblWinningTime;
     private javax.swing.JTextField txtNAME;
     private javax.swing.JTextField txtTIME;
     // End of variables declaration//GEN-END:variables

@@ -48,6 +48,7 @@ public class MainGUI extends javax.swing.JFrame {
         SetLabels();
         setSize(1010, 635);
         setResizable(false);
+        setLocationRelativeTo(null);
         if (!GetData.checkFileExists(logFile)) {
             System.out.println("File not found. Regenerating...");
             GetData.regenFile(logFile);
@@ -121,7 +122,8 @@ public class MainGUI extends javax.swing.JFrame {
 
         txtNAME = new javax.swing.JTextField();
         txtTIME = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSubmitTimes = new javax.swing.JButton();
+        btnRoles = new javax.swing.JButton();
         NOTE = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -155,20 +157,30 @@ public class MainGUI extends javax.swing.JFrame {
         getContentPane().add(txtTIME);
         txtTIME.setBounds(80, 250, 390, 54);
 
-        jButton1.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
-        jButton1.setText("Submit Times");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmitTimes.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
+        btnSubmitTimes.setText("Submit Times");
+        btnSubmitTimes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSubmitTimesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(80, 310, 390, 80);
+        getContentPane().add(btnSubmitTimes);
+        btnSubmitTimes.setBounds(80, 310, 390, 80);
+
+        btnRoles.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnRoles.setText("Rules");
+        btnRoles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRolesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRoles);
+        btnRoles.setBounds(170, 480, 200, 60);
 
         NOTE.setFont(new java.awt.Font("Helvetica-Narrow", 0, 18)); // NOI18N
         NOTE.setText("V1.5.1: New time logs must be genuine entries as of 4/6/14");
         getContentPane().add(NOTE);
-        NOTE.setBounds(80, 460, 520, 44);
+        NOTE.setBounds(80, 440, 520, 44);
 
         jLabel2.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         jLabel2.setText("Time (in minutes):");
@@ -187,7 +199,7 @@ public class MainGUI extends javax.swing.JFrame {
         lblWinning.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblWinning.setText("Currently in the lead is");
         getContentPane().add(lblWinning);
-        lblWinning.setBounds(80, 400, 360, 44);
+        lblWinning.setBounds(80, 400, 470, 44);
 
         lblPhoebe.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         lblPhoebe.setText("Phoebe");
@@ -251,7 +263,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTIMEActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSubmitTimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitTimesActionPerformed
       String Currentname = txtNAME.getText();
         if (Currentname.equalsIgnoreCase("dylan")) {
              Time = GetData.getTimeDylan();
@@ -294,7 +306,12 @@ public class MainGUI extends javax.swing.JFrame {
         txtTIME.setText("");
         SetLabels(); 
         Leader();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSubmitTimesActionPerformed
+
+    private void btnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRolesActionPerformed
+        Rules rulesWindow = new Rules(this, true);
+        rulesWindow.setVisible(true);
+    }//GEN-LAST:event_btnRolesActionPerformed
 
     public int getTextboxTime() {
         int intTime = 0;
@@ -352,7 +369,8 @@ public class MainGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NOTE;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRoles;
+    private javax.swing.JButton btnSubmitTimes;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblDylan;

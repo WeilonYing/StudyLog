@@ -26,4 +26,6 @@ Version History:
 	Added Phoebe
 	Created separate log files to allow for offline updating, without conflicting
 	Added Leader function
-	
+1.6 {Weilon Ying]
+	Added Rules window.
+	Centred windows to middle of the screen.

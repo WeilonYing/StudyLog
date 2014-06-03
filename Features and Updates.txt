@@ -1,4 +1,4 @@
-Study Log V1.5.1
+Study Log V1.6
 Created by Dylan Zhang, adapted via the Rapid Application Development Approach from Weilon Ying's code
 #############################################################################################
 PLANNED FEATURES: 
@@ -7,7 +7,6 @@ PLANNED FEATURES:
 Version History:
 1.0: [Dylan Zhang]
 	 Created program.
-
 1.1: [Dylan Zhang]
 	Added Katrina
 	Fixed a bug that caused the program to count over 60 minutes
@@ -29,3 +28,6 @@ Version History:
 1.6 {Weilon Ying]
 	Added Rules window.
 	Centred windows to middle of the screen.
+1.7 [Weilon Ying]
+	StudyLog now auto-generates log files if not found.
+	StudyLog no longer depends on Log.txt file to function.

@@ -1,6 +1,9 @@
 package studylog;
 import javax.swing.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.List;
 
@@ -14,7 +17,7 @@ import java.util.List;
  * @author Dylan
  */
 public class MainGUI extends javax.swing.JFrame {
-    String logFile = "Log.txt"; //Change this if you want to change the log file name.
+    //String logFile = "Log.txt"; //Change this if you want to change the log file name.
     
     int Time;
     int DTotal;
@@ -49,10 +52,7 @@ public class MainGUI extends javax.swing.JFrame {
         setSize(1010, 635);
         setResizable(false);
         setLocationRelativeTo(null);
-        if (!GetData.checkFileExists(logFile)) {
-            System.out.println("File not found. Regenerating...");
-            GetData.regenFile(logFile);
-        }
+
         rewriteData();
         Leader();
         
@@ -61,12 +61,27 @@ public class MainGUI extends javax.swing.JFrame {
         //Add names here.
         String[] names = {"Dylan", "Jack", "Weilon", "Katrina", "Phoebe"};
         String checkExistingData = "";
-        for (int i = 0; i < names.length; i++) {
-            checkExistingData = GetData.getTime(names[i]);
-            if (checkExistingData == null) {
-                GetData.write(logFile, names[i], "0");
+        if (Files.notExists(Paths.get("Logs"), LinkOption.NOFOLLOW_LINKS)) {
+            boolean mkFolder = new File("Logs").mkdir(); //Create the directory. If failed, it will return false.
+            if (!mkFolder) {
+                JOptionPane.showMessageDialog(null, "Cannot create data files. Please move "
+                        + "StudyLog to a different directory or run as "
+                        + "Administrator.", "Cannot create data files", JOptionPane.ERROR_MESSAGE);
             }
         }
+        for (int i = 0; i < names.length; i++) {
+            if (!GetData.checkFileExists("Logs/Log" + names[i] + ".txt")) {
+                String sourceFileRegen = "Logs/Log" + names[i] + ".txt";
+                GetData.regenFile(sourceFileRegen);
+                GetData.write(sourceFileRegen, names[i], "0");;
+            }
+        }
+        
+        //Obsolete code. Still needed for reference.
+        /*checkExistingData = GetData.getTime(names[i]);
+            if (checkExistingData == null) {
+                GetData.write(logFile, names[i], "0");
+        }*/
     }
     public void SetLabels() {
        DTotal = GetData.getTimeDylan();

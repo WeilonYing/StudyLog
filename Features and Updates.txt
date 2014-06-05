@@ -1,33 +1,52 @@
-Study Log V1.6
-Created by Dylan Zhang, adapted via the Rapid Application Development Approach from Weilon Ying's code
+StudyLog
+Created by Dylan Zhang and Weilon Ying
 #############################################################################################
 PLANNED FEATURES: 
-	N/A
+	N/A 
+	Requests are welcome
 #############################################################################################
-Version History:
-1.0: [Dylan Zhang]
-	 Created program.
-1.1: [Dylan Zhang]
-	Added Katrina
-	Fixed a bug that caused the program to count over 60 minutes
-	Made program less insulting
+Version History (reverse chronological order):
+1.8.0.2 [Weilon Ying]
+	Fixed spelling and gramattical error in Japanese title.
+1.8.0.1 [Dylan Zhang]
+	Removed JackQu's quotes that were flooding the source code
+
+1.8 [Dylan Zhang]
+	Titles. The program was boring
+	Update log is now in reverse chronological order
+
+1.7 [Weilon Ying]
+	StudyLog now auto-generates log files if not found.
+	StudyLog no longer depends on Log.txt file to function.
+
+1.6 {Weilon Ying]
+	Added Rules window.
+	Centred windows to middle of the screen.
+
+1.5 [Dylan Zhang]
+	Added Phoebe
+	Created separate log files to allow for offline updating, without conflicting
+	Added Leader function
+
+1.4 [Weilon Ying]
+	Fixed name case bug
+
+1.3: [Dylan Zhang]
+	Drew a background picture 
+
 1.2: [Weilon Ying]
 	Program now checks if file is not found. If not found, automatically regenerate.
 	Developer-specific changes below:
 		Simplified some code.
 		Added more functionality to GetData.java
 		Added getTextboxTime() method.
-1.3: [Dylan Zhang]
-	Drew a background picture 
-1.4 [Weilon Ying]
-	Fixed name case bug
-1.5 [Dylan Zhang]
-	Added Phoebe
-	Created separate log files to allow for offline updating, without conflicting
-	Added Leader function
-1.6 {Weilon Ying]
-	Added Rules window.
-	Centred windows to middle of the screen.
-1.7 [Weilon Ying]
-	StudyLog now auto-generates log files if not found.
-	StudyLog no longer depends on Log.txt file to function.
+
+1.1: [Dylan Zhang]
+	Added Katrina
+	Fixed a bug that caused the program to count over 60 minutes
+	Made program less insulting
+
+1.0: [Dylan Zhang]
+	 Created program.
+
+

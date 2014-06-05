@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.List;
 
 
+
 /*
  *Hello all. Prepare to get cancer from this terrible coding :)
  */
@@ -41,6 +42,7 @@ public class MainGUI extends javax.swing.JFrame {
     int PTotal;
     
     String Leader = "Nobody";
+    int TitleChooser;
         
     /**
      * Creates new form MainGUI
@@ -55,8 +57,47 @@ public class MainGUI extends javax.swing.JFrame {
 
         rewriteData();
         Leader();
-        
+        RandomTitle();
     }
+     public int RandomInteger(int min, int max) { 
+        int number = (min + (int)(Math.random() * ((max - min) + 1)));
+        return number;
+                }
+     public void RandomTitle() {
+         TitleChooser = RandomInteger(1, 10);
+         if (TitleChooser == 1) {
+            this.setTitle("StudyLog - much more interesting than paper!");
+         }
+         else if (TitleChooser == 2) {
+             this.setTitle("Completely Scientific!");
+         }
+         else if (TitleChooser == 3) {
+             this.setTitle("This isn't even my final form!");
+         }
+         else if (TitleChooser == 4) {
+             this.setTitle("こんにちは　日本！"); //Hello Japan!
+         }
+         else if (TitleChooser == 5) {
+             this.setTitle("[Shameless promotion goes here]");
+         }
+         else if (TitleChooser == 6) {
+             this.setTitle("Totally not rigged!");
+         }
+         else if (TitleChooser == 7) {
+             this.setTitle("Made with 11 secret herbs and spices!");
+         }
+         else if (TitleChooser == 8) {
+             this.setTitle("Now with 100% more random titles!");
+         }
+         else if (TitleChooser == 9) {
+             this.setTitle("30% bonus to intellect while active"); 
+         }
+         else if (TitleChooser == 10) {
+             this.setTitle("Now with 20% less bias!");
+         }
+         
+     }
+    
     public void rewriteData() { //Regenerate names if not found
         //Add names here.
         String[] names = {"Dylan", "Jack", "Weilon", "Katrina", "Phoebe"};
@@ -139,7 +180,6 @@ public class MainGUI extends javax.swing.JFrame {
         txtTIME = new javax.swing.JTextField();
         btnSubmitTimes = new javax.swing.JButton();
         btnRoles = new javax.swing.JButton();
-        NOTE = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblWinningTime = new javax.swing.JLabel();
@@ -190,12 +230,7 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRoles);
-        btnRoles.setBounds(170, 480, 200, 60);
-
-        NOTE.setFont(new java.awt.Font("Helvetica-Narrow", 0, 18)); // NOI18N
-        NOTE.setText("V1.5.1: New time logs must be genuine entries as of 4/6/14");
-        getContentPane().add(NOTE);
-        NOTE.setBounds(80, 440, 520, 44);
+        btnRoles.setBounds(170, 460, 200, 60);
 
         jLabel2.setFont(new java.awt.Font("Helvetica-Narrow", 0, 24)); // NOI18N
         jLabel2.setText("Time (in minutes):");
@@ -383,7 +418,6 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel NOTE;
     private javax.swing.JButton btnRoles;
     private javax.swing.JButton btnSubmitTimes;
     private javax.swing.JLabel jLabel2;

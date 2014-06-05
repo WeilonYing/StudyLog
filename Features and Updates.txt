@@ -6,6 +6,8 @@ PLANNED FEATURES:
 	Requests are welcome
 #############################################################################################
 Version History (reverse chronological order):
+1.8.0.3 [Weilon Ying]
+	New titles with potato and Software Design & Development references!
 1.8.0.2 [Weilon Ying]
 	Fixed spelling and gramattical error in Japanese title.
 1.8.0.1 [Dylan Zhang]

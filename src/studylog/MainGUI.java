@@ -59,49 +59,104 @@ public class MainGUI extends javax.swing.JFrame {
         Leader();
         RandomTitle();
     }
-     public int RandomInteger(int min, int max) { 
-        int number = (min + (int)(Math.random() * ((max - min) + 1)));
-        return number;
-                }
-     public void RandomTitle() {
-         TitleChooser = RandomInteger(1, 10);
-         if (TitleChooser == 1) {
-            this.setTitle("StudyLog - much more interesting than paper!");
+    public int RandomInteger(int min, int max) { 
+       int number = (min + (int)(Math.random() * ((max - min) + 1)));
+       return number;
+               }
+    public void RandomTitle() {
+        TitleChooser = RandomInteger(1, 16);
+
+        switch (TitleChooser) {
+            case 1:
+                setTitle("StudyLog - much more interesting than paper!");
+                break;
+            case 2:
+                setTitle("Completely Scientific!");
+                break;
+            case 3:
+                setTitle("This isn't even my final form!");
+                break;
+            case 4:
+                setTitle("こんにちは　日本！"); //Hello Japan!
+                break;
+            case 5:
+                setTitle("[Shameless promotion goes here]");
+                break;
+            case 6:
+                setTitle("Totally not rigged!");
+                break;
+            case 7:
+                setTitle("Made with 11 secret herbs and spices!");
+                break;
+            case 8:
+                setTitle("Now with 100% more random titles!");
+                break;
+            case 9:
+                setTitle("30% bonus to intellect while active");
+                break;
+            case 10:
+                setTitle("Now with 20% less bias!");
+                break;
+            case 11:
+                setTitle("Independent Potato that doesn't need no Sasha");
+                break;
+            case 12:
+                setTitle("Now serves mouth-watering baked potatoes!");
+                break;
+            case 13:
+                setTitle("Turns mud into spuds!");
+                break;
+            case 14:
+                setTitle("DragonStryke 2.0");
+                break;
+            case 15:
+                setTitle("Now with Mr. Willey DLC!");
+                break;
+            case 16:
+                setTitle("Feed your family for under $10!");
+                break;
+            default:
+                setTitle("Study Log");
          }
-         else if (TitleChooser == 2) {
-             this.setTitle("Completely Scientific!");
-         }
-         else if (TitleChooser == 3) {
-             this.setTitle("This isn't even my final form!");
-         }
-         else if (TitleChooser == 4) {
-             this.setTitle("こんにちは　日本！"); //Hello Japan!
-         }
-         else if (TitleChooser == 5) {
-             this.setTitle("[Shameless promotion goes here]");
-         }
-         else if (TitleChooser == 6) {
-             this.setTitle("Totally not rigged!");
-         }
-         else if (TitleChooser == 7) {
-             this.setTitle("Made with 11 secret herbs and spices!");
-         }
-         else if (TitleChooser == 8) {
-             this.setTitle("Now with 100% more random titles!");
-         }
-         else if (TitleChooser == 9) {
-             this.setTitle("30% bonus to intellect while active"); 
-         }
-         else if (TitleChooser == 10) {
-             this.setTitle("Now with 20% less bias!");
-         }
+        
+        /* OBSOLETE CODE
+        if (TitleChooser == 1) {
+           this.setTitle("StudyLog - much more interesting than paper!");
+        }
+        else if (TitleChooser == 2) {
+            this.setTitle("Completely Scientific!");
+        }
+        else if (TitleChooser == 3) {
+            this.setTitle("This isn't even my final form!");
+        }
+        else if (TitleChooser == 4) {
+            this.setTitle("こんにちは　日本！"); //Hello Japan!
+        }
+        else if (TitleChooser == 5) {
+            this.setTitle("[Shameless promotion goes here]");
+        }
+        else if (TitleChooser == 6) {
+            this.setTitle("Totally not rigged!");
+        }
+        else if (TitleChooser == 7) {
+            this.setTitle("Made with 11 secret herbs and spices!");
+        }
+        else if (TitleChooser == 8) {
+            this.setTitle("Now with 100% more random titles!");
+        }
+        else if (TitleChooser == 9) {
+            this.setTitle("30% bonus to intellect while active"); 
+        }
+        else if (TitleChooser == 10) {
+            this.setTitle("Now with 20% less bias!");
+        }
+        */
          
      }
     
     public void rewriteData() { //Regenerate names if not found
         //Add names here.
         String[] names = {"Dylan", "Jack", "Weilon", "Katrina", "Phoebe"};
-        String checkExistingData = "";
         if (Files.notExists(Paths.get("Logs"), LinkOption.NOFOLLOW_LINKS)) {
             boolean mkFolder = new File("Logs").mkdir(); //Create the directory. If failed, it will return false.
             if (!mkFolder) {

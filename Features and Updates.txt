@@ -2,14 +2,18 @@ StudyLog
 Created by Dylan Zhang and Weilon Ying
 #############################################################################################
 PLANNED FEATURES: 
-	N/A 
-	Requests are welcome
+	PORT TO C#  - we need that lovely .exe extension
 #############################################################################################
 Version History (reverse chronological order):
+1.8.0.4 [Dylan Zhang]
+	Removed one particular cancer-inducing potato title.
+
 1.8.0.3 [Weilon Ying]
 	New titles with potato and Software Design & Development references!
+
 1.8.0.2 [Weilon Ying]
 	Fixed spelling and gramattical error in Japanese title.
+
 1.8.0.1 [Dylan Zhang]
 	Removed JackQu's quotes that were flooding the source code
 

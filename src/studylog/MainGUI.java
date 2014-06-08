@@ -104,7 +104,7 @@ public class MainGUI extends javax.swing.JFrame {
                 setTitle("Now serves mouth-watering baked potatoes!");
                 break;
             case 13:
-                setTitle("Turns mud into spuds!");
+                setTitle("Down Down! Prices are Down!");
                 break;
             case 14:
                 setTitle("DragonStryke 2.0");
